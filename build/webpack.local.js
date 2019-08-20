@@ -68,6 +68,13 @@ const devWebpackConfig = merge(baseConfig, {
     ]
   },
   plugins: [
+    new webpack.DllReferencePlugin({
+      manifest: path.resolve(
+        __dirname,
+        '..',
+        'node_modules/mc-dlls/manifest.json'
+      )
+    }),
     /* config.plugin('define') */
     new webpack.DefinePlugin(
       {
